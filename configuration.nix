@@ -148,6 +148,7 @@
     git
     iwd
     iwgtk
+    xwaylandvideobridge
   ];
 
   networking.wireless.iwd.enable = true;
