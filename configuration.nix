@@ -74,7 +74,7 @@
     autorun = true;
   };
 
-  environment.sessionVariables.NIXOS_OZONE_WL = "1";
+  #environment.sessionVariables.NIXOS_OZONE_WL = "1";
 
   
 
@@ -145,9 +145,12 @@
     polkit_gnome
     gnome.gnome-disk-utility
     spotify
-    gitFull
-    tk
+    git
+    iwd
+    iwgtk
   ];
+
+  networking.wireless.iwd.enable = true;
 
   nixpkgs.config.allowUnfreePredicate = pkg: builtins.elem (lib.getName pkg) [
     "discord"
