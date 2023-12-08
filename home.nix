@@ -20,8 +20,8 @@
       name = "Catppuccin-Mocha-Standard-Sky-Dark";
       package = pkgs.catppuccin-gtk.override {
         accents = [ "sky" ];
-	size = "standard";
-	variant = "mocha";
+        size = "standard";
+        variant = "mocha";
       };
     };
   };

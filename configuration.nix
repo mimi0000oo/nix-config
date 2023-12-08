@@ -48,14 +48,14 @@
     liberation_ttf
     freefont_ttf
     (nerdfonts.override { fonts = [
-	"Inconsolata"
-	"Iosevka"
-	"JetBrainsMono"
-	"Noto"
-	"NerdFontsSymbolsOnly"
-	"SpaceMono"
-	"Ubuntu"
-	"UbuntuMono"
+      "Inconsolata"
+      "Iosevka"
+      "JetBrainsMono"
+      "Noto"
+      "NerdFontsSymbolsOnly"
+      "SpaceMono"
+      "Ubuntu"
+      "UbuntuMono"
       ];
     })
   ];
@@ -131,8 +131,8 @@
       vscode = vscodium;
       vscodeExtensions = with vscode-extensions; [
         bbenoist.nix
-	llvm-vs-code-extensions.vscode-clangd
-	catppuccin.catppuccin-vsc
+        llvm-vs-code-extensions.vscode-clangd
+        catppuccin.catppuccin-vsc
       ];
     })
     libsForQt5.qt5.qtgraphicaleffects
@@ -154,6 +154,9 @@
   hardware.bluetooth.enable = true;
   hardware.bluetooth.powerOnBoot = true;
   services.blueman.enable = true;
+  
+  services.fwupd.enable = true;
+
 
   nixpkgs.config.allowUnfreePredicate = pkg: builtins.elem (lib.getName pkg) [
     "discord"

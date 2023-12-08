@@ -11,9 +11,13 @@
       url = "github:hyprwm/Hyprland";
       inputs.nixpkgs.follows = "nixpkgs";
     };
+    spicetify-nix = {
+      url = "github:the-argus/spicetify-nix";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
   };
 
-  outputs = { self, nixpkgs, home-manager, hyprland, ... }@inputs:
+  outputs = { self, nixpkgs, ... }@inputs:
   let 
     system = "x86_64-linux";
     pkgs = import nixpkgs {
@@ -28,16 +32,12 @@
     nixosConfigurations = {
       nixos = nixpkgs.lib.nixosSystem {
         specialArgs = { inherit inputs; };
-
-	modules = [
-	  ./configuration.nix
-	];
-
+        modules = [
+          ./configuration.nix
+          ./spotify.nix
+        ];
       };
-
     };
-
-
   };
 
 }
