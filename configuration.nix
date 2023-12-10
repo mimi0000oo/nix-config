@@ -128,6 +128,9 @@
     nwg-look
     psmisc
     python311Packages.pygobject3
+    p7zip
+    unrar
+    gnutar
   ];
 
   networking.wireless.iwd.enable = true;
