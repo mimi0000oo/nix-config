@@ -147,6 +147,7 @@
     "spotify"
     "libsciter"
     "anydesk"
+    "unrar"
   ];
 
   sound.enable = true;
