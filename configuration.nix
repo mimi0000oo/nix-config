@@ -129,8 +129,9 @@
     psmisc
     python311Packages.pygobject3
     p7zip
-    unrar
     gnutar
+    unrar
+    unzip
   ];
 
   networking.wireless.iwd.enable = true;
