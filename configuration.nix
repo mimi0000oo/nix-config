@@ -90,9 +90,7 @@
     kitty
     neofetch
     firefox
-    (pkgs.discord.override {
-      withOpenASAR = true;
-    })
+    discord
     waybar
     hyprland
     wofi
