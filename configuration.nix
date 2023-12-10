@@ -25,7 +25,13 @@
 
   networking.hostName = "nixos"; # Define your hostname.
 
-  #environment.sessionVariables.NIXOS_OZONE_WL = "1";
+  environment.sessionVariables = {
+    EDITOR = "nvim";
+    XDG_CURRENT_DESKTOP = "Hyprland";
+    QT_QPA_PLATFORM="wayland;xcb";
+  };
+
+  
 
   time.timeZone = "Europe/Bucharest";
 
@@ -69,6 +75,7 @@
     "d /home/mimi07/Pictures 0755 mimi07 users -"
     "d /home/mimi07/Pictures/wallpapers 0755 mimi07 users -"
     "d /home/mimi07/Pictures/wallpapers/gifs 0755 mimi07 users -"
+    "d /home/mimi07/Pictures/wallpapers/images 0755 mimi07 users -"
   ];
 
 
@@ -119,6 +126,8 @@
     anydesk
     nwg-displays
     nwg-look
+    psmisc
+    python311Packages.pygobject3
   ];
 
   networking.wireless.iwd.enable = true;
@@ -145,6 +154,20 @@
     pulse.enable = true;
     jack.enable = true;
   };
+
+  xdg = {
+    portal = {
+      enable = true;
+      config = {
+        common = {
+          default = [
+            "gtk"
+          ];
+        };
+      };
+    };
+  };
+
 
   nix.settings.experimental-features = [ "nix-command" "flakes" ];
 

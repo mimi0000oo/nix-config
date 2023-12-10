@@ -2,7 +2,6 @@
 
 {
   
-
   wayland.windowManager.hyprland = {
     enable = true;
     xwayland.enable = true;
@@ -27,6 +26,8 @@
   
       # Execute your favorite apps at launch
       exec-once = waybar
+      exec-once = xwaylandvideobridge
+      exec-once=waypaper --restore --backend swww
   
       # Source a file (multi-file configs)
       # source = ~/.config/hypr/myColors.conf
