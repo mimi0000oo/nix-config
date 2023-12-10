@@ -134,9 +134,7 @@
     unrar
     unzip
     libsForQt5.dolphin
-    moonlight-qt
-    remmina
-    freerdp
+    obs-studio
   ];
 
   networking.wireless.iwd.enable = true;
