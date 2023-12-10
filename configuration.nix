@@ -133,6 +133,7 @@
     unzip
     libsForQt5.dolphin
     obs-studio
+    swaynotificationcenter
   ];
 
   networking.wireless.iwd.enable = true;
