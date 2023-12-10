@@ -3,8 +3,8 @@
 {
 
   imports = [
-    ./hyprland.nix
-    # ./waybar.nix
+    ../hyprland.nix
+    ../waybar.nix
   ];
 
   home.username = "mimi07";

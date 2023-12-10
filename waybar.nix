@@ -1,501 +1,620 @@
-# {config, pkgs, ...}:
+{config, pkgs, ...}:
 
-# {
-
-#   programs.waybar = {
-#     enable = true;
-#     settings = {
-#       mainBar = {
-#         layer = "top";
-#         #// "position": "bottom", // Waybar position (top|bottom|left|right)
-#         height = 30; #// Waybar height (to be removed for auto height)
-#         #// "width": 1280, // Waybar width
-#         # "spacing": 4, // Gaps between modules (4px)
-#         #// Choose the order of the modules
-#         modules-left = [ "hyprland/workspaces" "hyprland/mode" "hyprland/scratchpad" "custom/media" ];
-#         modules-center = ["hyprland/window"];
-#         modules-right = ["mpd" "idle_inhibitor" "pulseaudio" "network" "cpu" "memory" "temperature" "backlight" "keyboard-state" "sway/language" "battery" "battery#bat2" "clock" "tray"];
-#         #// Modules configuration
-#         "hyprland/workspaces" = {
-#           # disable-scroll = true;
-#           all-outputs = true;
-#           warp-on-scroll = false;
-#           format = "{name}: {icon}";
-#           format-icons = {
-#             "1" = "";
-#             "2" = "";
-#             "3" = "";
-#             "4" = "";
-#             "5" = "";
-#             "urgent" = "";
-#             "focused" = "";
-#             "default" = "";
-#           };
-#         };
-#         # keyboard-state = {
-#         #     numlock = true;
-#         #     capslock = true;
-#         #     format = "{name} {icon}";
-#         #     format-icons = {
-#         #         locked = "";
-#         #         unlocked = "";
-#         #     };
-#         # };
-#         # "sway/mode" = {
-#         #     format = "<span style=\"italic\">{}</span>";
-#         # };
-#         # "sway/scratchpad" = {
-#         #     format = "{icon} {count}";
-#         #     show-empty = false;
-#         #     format-icons = [ "" "" ];
-#         #     tooltip = true;
-#         #     tooltip-format = "{app}: {title}";
-#         # };
-#         # "mpd": {
-#         #     "format": "{stateIcon} {consumeIcon}{randomIcon}{repeatIcon}{singleIcon}{artist} - {album} - {title} ({elapsedTime:%M:%S}/{totalTime:%M:%S}) ⸨{songPosition}|{queueLength}⸩ {volume}% ",
-#         #     "format-disconnected": "Disconnected ",
-#         #     "format-stopped": "{consumeIcon}{randomIcon}{repeatIcon}{singleIcon}Stopped ",
-#         #     "unknown-tag": "N/A",
-#         #     "interval": 2,
-#         #     "consume-icons": {
-#         #         "on": " "
-#         #     },
-#         #     "random-icons": {
-#         #         "off": "<span color=\"#f53c3c\"></span> ",
-#         #         "on": " "
-#         #     },
-#         #     "repeat-icons": {
-#         #         "on": " "
-#         #     },
-#         #     "single-icons": {
-#         #         "on": "1 "
-#         #     },
-#         #     "state-icons": {
-#         #         "paused": "",
-#         #         "playing": ""
-#         #     },
-#         #     "tooltip-format": "MPD (connected)",
-#         #     "tooltip-format-disconnected": "MPD (disconnected)"
-#         # },
-#         # "idle_inhibitor": {
-#         #     "format": "{icon}",
-#         #     "format-icons": {
-#         #         "activated": "",
-#         #         "deactivated": ""
-#         #     }
-#         # },
-#         # "tray": {
-#         #     // "icon-size": 21,
-#         #     "spacing": 10
-#         # },
-#         # "clock": {
-#         #     // "timezone": "America/New_York",
-#         #     "tooltip-format": "<big>{:%Y %B}</big>\n<tt><small>{calendar}</small></tt>",
-#         #     "format-alt": "{:%Y-%m-%d}"
-#         # },
-#         # "cpu": {
-#         #     "format": "{usage}% ",
-#         #     "tooltip": false
-#         # },
-#         # "memory": {
-#         #     "format": "{}% "
-#         # },
-#         # "temperature": {
-#         #     // "thermal-zone": 2,
-#         #     // "hwmon-path": "/sys/class/hwmon/hwmon2/temp1_input",
-#         #     "critical-threshold": 80,
-#         #     // "format-critical": "{temperatureC}°C {icon}",
-#         #     "format": "{temperatureC}°C {icon}",
-#         #     "format-icons": ["", "", ""]
-#         # },
-#         # "backlight": {
-#         #     // "device": "acpi_video1",
-#         #     "format": "{percent}% {icon}",
-#         #     "format-icons": ["", "", "", "", "", "", "", "", ""]
-#         # },
-#         # "battery": {
-#         #     "states": {
-#         #         // "good": 95,
-#         #         "warning": 30,
-#         #         "critical": 15
-#         #     },
-#         #     "format": "{capacity}% {icon}",
-#         #     "format-charging": "{capacity}% ",
-#         #     "format-plugged": "{capacity}% ",
-#         #     "format-alt": "{time} {icon}",
-#         #     // "format-good": "", // An empty format will hide the module
-#         #     // "format-full": "",
-#         #     "format-icons": ["", "", "", "", ""]
-#         # },
-#         # "battery#bat2": {
-#         #     "bat": "BAT2"
-#         # },
-#         # "network": {
-#         #     // "interface": "wlp2*", // (Optional) To force the use of this interface
-#         #     "format-wifi": "{essid} ({signalStrength}%) ",
-#         #     "format-ethernet": "{ipaddr}/{cidr} ",
-#         #     "tooltip-format": "{ifname} via {gwaddr} ",
-#         #     "format-linked": "{ifname} (No IP) ",
-#         #     "format-disconnected": "Disconnected ⚠",
-#         #     "format-alt": "{ifname}: {ipaddr}/{cidr}"
-#         # },
-#         # "pulseaudio": {
-#         #     // "scroll-step": 1, // %, can be a float
-#         #     "format": "{volume}% {icon} {format_source}",
-#         #     "format-bluetooth": "{volume}% {icon} {format_source}",
-#         #     "format-bluetooth-muted": " {icon} {format_source}",
-#         #     "format-muted": " {format_source}",
-#         #     "format-source": "{volume}% ",
-#         #     "format-source-muted": "",
-#         #     "format-icons": {
-#         #         "headphone": "",
-#         #         "hands-free": "",
-#         #         "headset": "",
-#         #         "phone": "",
-#         #         "portable": "",
-#         #         "car": "",
-#         #         "default": ["", "", ""]
-#         #     },
-#         #     "on-click": "pavucontrol"
-#         # },
-#         # "custom/media": {
-#         #     "format": "{icon} {}",
-#         #     "return-type": "json",
-#         #     "max-
-#         # };"default": "🎜"
-#         #     },
-#         #     "escape": true,
-#         #     "exec": "$HOME/.config/waybar/mediaplayer.py 2> /dev/null" // Script in resources folder
-#         #     // "exec": "$HOME/.config/waybar/mediaplayer.py --player spotify 2> /dev/null" // Filter player based on name
-#         # };
-#     };
-
-#   };
-
-# }
-
-{ 
-    ... 
-}:
 {
-    programs.waybar = {
-        enable = true;
-        settings.mainBar = {
-            position= "top";
-            layer= "top";
-            height= 35;
-            margin-top= 0;
-            margin-bottom= 0;
-            margin-left= 0;
-            margin-right= 0;
-            modules-left= [
-                "custom/launcher" 
-                "custom/playerctl#backward" 
-                "custom/playerctl#play" 
-                "custom/playerctl#foward" 
-                "custom/playerlabel"
-            ];
-            modules-center= [
-                "cava#left"
-                "hyprland/workspaces"
-                "cava#right"
-            ];
-            modules-right= [
-                "tray" 
-                "battery"
-                "pulseaudio" 
-                "network"
-                "clock" 
-            ];
-            clock= {
-                format = " {:%a, %d %b, %I:%M %p}";
-                tooltip= "true";
-                tooltip-format= "<big>{:%Y %B}</big>\n<tt><small>{calendar}</small></tt>";
-                format-alt= " {:%d/%m}";
-            };
-            "wlr/workspaces"= {
-                active-only= false;
-                all-outputs= false;
-                disable-scroll= false;
-                on-scroll-up= "hyprctl dispatch workspace e-1";
-                on-scroll-down= "hyprctl dispatch workspace e+1";
-                format = "{name}";
-                on-click= "activate";
-                format-icons= {
-                    urgent= "";
-                    active= "";
-                    default = "";
-                    sort-by-number= true;
-                };
-            };
-            "cava#left" = {
-                framerate = 60;
-                autosens = 1;
-                bars = 18;
-                lower_cutoff_freq = 50;
-                higher_cutoff_freq = 10000;
-                method = "pipewire";
-                source = "auto";
-                stereo = true;
-                reverse = false;
-                bar_delimiter = 0;
-                monstercat = false;
-                waves = false;
-                input_delay = 2;
-                format-icons = [ 
-                  "<span foreground='#${custom.primary_accent}'>▁</span>" 
-                  "<span foreground='#${custom.primary_accent}'>▂</span>" 
-                  "<span foreground='#${custom.primary_accent}'>▃</span>" 
-                  "<span foreground='#${custom.primary_accent}'>▄</span>" 
-                  "<span foreground='#${custom.secondary_accent}'>▅</span>" 
-                  "<span foreground='#${custom.secondary_accent}'>▆</span>" 
-                  "<span foreground='#${custom.secondary_accent}'>▇</span>" 
-                  "<span foreground='#${custom.secondary_accent}'>█</span>" 
-                ];
-            };
-            "cava#right" = {
-                framerate = 60;
-                autosens = 1;
-                bars = 18;
-                lower_cutoff_freq = 50;
-                higher_cutoff_freq = 10000;
-                method = "pipewire";
-                source = "auto";
-                stereo = true;
-                reverse = false;
-                bar_delimiter = 0;
-                monstercat = false;
-                waves = false;
-                input_delay = 2;
-                format-icons = [ 
-                  "<span foreground='#${custom.primary_accent}'>▁</span>" 
-                  "<span foreground='#${custom.primary_accent}'>▂</span>" 
-                  "<span foreground='#${custom.primary_accent}'>▃</span>" 
-                  "<span foreground='#${custom.primary_accent}'>▄</span>" 
-                  "<span foreground='#${custom.secondary_accent}'>▅</span>" 
-                  "<span foreground='#${custom.secondary_accent}'>▆</span>" 
-                  "<span foreground='#${custom.secondary_accent}'>▇</span>" 
-                  "<span foreground='#${custom.secondary_accent}'>█</span>" 
-                ];
-            };
-            "custom/playerctl#backward"= {
-                format= "󰙣 "; 
-                on-click= "playerctl previous";
-                on-scroll-up = "playerctl volume .05+";
-                on-scroll-down = "playerctl volume .05-";
-            };
-            "custom/playerctl#play"= {
-                format= "{icon}";
-                return-type= "json";
-                exec= "playerctl -a metadata --format '{\"text\": \"{{artist}} - {{markup_escape(title)}}\", \"tooltip\": \"{{playerName}} : {{markup_escape(title)}}\", \"alt\": \"{{status}}\", \"class\": \"{{status}}\"}' -F";
-                on-click= "playerctl play-pause";
-                on-scroll-up = "playerctl volume .05+";
-                on-scroll-down = "playerctl volume .05-";
-                format-icons= {
-                    Playing = "<span>󰏥 </span>";
-                    Paused = "<span> </span>";
-                    Stopped = "<span> </span>";
-                };
-            };
-            "custom/playerctl#foward"= {
-                format= "󰙡 ";
-                on-click= "playerctl next";
-                on-scroll-up = "playerctl volume .05+";
-                on-scroll-down = "playerctl volume .05-";
-            };
-            "custom/playerlabel"= {
-                format= "<span>󰎈 {} 󰎈</span>";
-                return-type= "json";
-                max-length= 40;
-                exec = "playerctl -a metadata --format '{\"text\": \"{{artist}} - {{markup_escape(title)}}\", \"tooltip\": \"{{playerName}} : {{markup_escape(title)}}\", \"alt\": \"{{status}}\", \"class\": \"{{status}}\"}' -F";
-                on-click= "";
-            };
-            battery= {
-                states= {
-                    good= 95;
-                    warning= 30;
-                    critical= 15;
-                };
-                format="{icon}  {capacity}%";
-                format-charging= "  {capacity}%";
-                format-plugged= " {capacity}% ";
-                format-alt= "{icon} {time}";
-                format-icons= ["" "" "" "" ""];
-            };
 
-            memory= {
-                format= "󰍛 {}%";
-                format-alt= "󰍛 {used}/{total} GiB";
-                interval= 5;
-            };
-            cpu= {
-                format= "󰻠 {usage}%";
-                format-alt= "󰻠 {avg_frequency} GHz";
-                interval= 5;
-            };
-            network = {
-                format-wifi = "  {signalStrength}%";
-                format-ethernet = "󰈀 100% ";
-                tooltip-format = "Connected to {essid} {ifname} via {gwaddr}";
-                format-linked = "{ifname} (No IP)";
-                format-disconnected = "󰖪 0% ";
-            };
-            tray= {
-                icon-size= 20;
-                spacing= 8;
-            };
-            pulseaudio= {
-                format= "{icon} {volume}%";
-                format-muted= "󰝟";
-                format-icons= {
-                    default= ["󰕿" "󰖀" "󰕾"];
-                };
-                # on-scroll-up= "bash ~/.scripts/volume up";
-                # on-scroll-down= "bash ~/.scripts/volume down";
-                scroll-step= 5;
-                on-click= "pavucontrol";
-            };
-            "custom/randwall"= {
-                format= "󰏘";
-                # on-click= "bash $HOME/.config/hypr/randwall.sh";
-                # on-click-right= "bash $HOME/.config/hypr/wall.sh";
-            };
-            "custom/launcher"= {
-                format= "";
-                # on-click= "bash $HOME/.config/rofi/launcher.sh";
-                # on-click-right= "bash $HOME/.config/rofi/run.sh"; 
-                tooltip= "false";
-            };
-        };
-        style = ''
-            * {
-                border: none;
-                border-radius: 0px;
-                font-family: ${custom.font};
-                font-size: 14px;
-                min-height: 0;
-            }
+  programs.waybar = {
+    enable = true;
+    settings = {
+      mainBar = {
+        layer = "top"; # Waybar at top layer
+        position = "top"; # Waybar position (top|bottom|left|right)
+        height = 45; # Waybar height (to be removed for auto height)
+        # "width": 2560; # Waybar width
+        spacing = 0; # Gaps between modules (0px) Adjusted in the css
+        margin-top = 0;
+      #     //"margin-bottom":-10,
+        margin-left = 10;
+        margin-right = 10;
+      #     // Choose the order of the modules
+        modules-left = [
+      #         "custom/launcher",
+          "hyprland/workspaces"
+      #         // "cpu",
+      #         // "memory",
+      #         // "temperature",
+      #         // "disk",
+      #         "custom/updates"
+        ];
+        modules-center = [
+          "custom/music"
+        ];
+        modules-right = [
+              "network"
+              "pulseaudio"
+              "backlight"
+              "battery"
+      #         "custom/notifications",
+              # "tray",
+              "clock"
+      #         // "custom/weather",
+      #         // "custom/cycle_wall",
+      #         // "custom/clipboard",
+      #         "custom/power"
+      #         // "custom/custom"
+        ];
+      #     "custom/launcher": {
+      #         "format": "{}",
+      #         "tooltip": true,
+      #         "exec": "echo '{\"text\":\"💧\",\"tooltip\":\"Drun | Run\"}'",
+      #         "return-type": "json",
+      #         "on-click": "pkill tofi || gamemoderun tofi-drun -c ~/.config/tofi/tofi.launcher.conf",
+      #         "on-click-right": "pkill tofi || gamemoderun tofi-run -c ~/.config/tofi/tofi.launcher.conf",
+      #         // "on-click": "pkill wofi || wofi --show drun -n",
+      #         // "on-click-right": "pkill wofi || wofi --show run -n",
+      #     },
+      #     "wlr/workspaces": {
+      #         // "format": "{icon} {name}",
+      #         "format": "",
+      #         "format-icons": {
+      #             "active": "",
+      #             "default": ""
+      #         },
+      #         "on-scroll-up": "hyprctl dispatch workspace e-1",
+      #         "on-scroll-down": "hyprctl dispatch workspace e+1",
+      #         "on-click": "activate"
+      #     },
+      #     "cpu": {
+      #         "format": " {usage}%",
+      #         "tooltip": true,
+      #         "on-click": "kitty --start-as=fullscreen --title all_is_kitty sh -c 'btop'",
+      #         "interval": 2
+      #     },
+      #     "memory": {
+      #         "format": " {}%",
+      #         "tooltip": true,
+      #         "on-click": "kitty --start-as=fullscreen --title all_is_kitty sh -c 'btop'",
+      #         "interval": 2
+      #     },
+      #     "temperature": {
+      #         // "thermal-zone": 2,
+      #         // "hwmon-path": "/sys/class/hwmon/hwmon2/temp1_input",
+      #         "critical-threshold": 40,
+      #         "format-critical": "{icon} {temperatureC}°C",
+      #         "format": "{icon} {temperatureC}°C",
+      #         "format-icons": [
+      #             "",
+      #             "",
+      #             ""
+      #         ],
+      #         "tooltip": true,
+      #         "on-click": "kitty --start-as=fullscreen --title all_is_kitty sh -c 'btop'",
+      #         "interval": 2
+      #     },
+      #     "disk": {
+      #         "format": " {percentage_used}% ({free})",
+      #         "tooltip": true,
+      #         "on-click": "kitty --start-as=fullscreen --title all_is_kitty sh -c 'btop'",
+      #         "interval": 2
+      #     },
+      #     "custom/updates": {
+      #         "format": "{}",
+      #         "exec": "~/.scripts/updates",
+      #         "on-click": "~/.scripts/updates update",
+      #         "interval": 600,
+      #         "tooltip": true,
+      #         // "tooltip-format": "{}",
+      #         // "exec-tooltip": "~/.scripts/updates tooltip"
+      #     },
+      #     "custom/music": {
+      #         "format": "{icon}{}",
+      #         "format-icons": {
+      #             // "Playing": " ", // Uncomment if not using the dynamic script
+      #             "Paused": " ",
+      #             "Stopped": "&#x202d;ﭥ " // This stop symbol is RTL. So &#x202d; is left-to-right override.
+      #         },
+      #         "escape": true,
+      #         "tooltip": true,
+      #         "exec": "~/.scripts/caway -b 10 -e",
+      #         "return-type": "json",
+      #         "on-click": "playerctl play-pause",
+      #         "on-scroll-up": "playerctl previous",
+      #         "on-scroll-down": "playerctl next",
+      #         "on-click-right": "g4music",
+      #         "max-length": 35
+      #     },
+      #     "hyprland/window": {
+      #         "format": "{}",
+      #         "separate-outputs": true,
+      #         "max-length": 35
+      #     },
+      #     "network": {
+      #         // "interface": "wlp2*", // (Optional) To force the use of this interface
+      #         "format": "↕{bandwidthTotalBytes}",
+      #         "format-disconnected": "{icon} No Internet",
+      #         "format-linked": " {ifname} (No IP)",
+      #         "format-alt": "↕{bandwidthUpBytes} | ↕{bandwidthDownBytes}",
+      #         "tooltip-format": "{ifname}: {ipaddr}/{cidr}  {gwaddr}",
+      #         "tooltip-format-wifi": "{icon} {essid} ({signalStrength}%)",
+      #         "tooltip-format-ethernet": "{icon} {ipaddr}/{cidr}",
+      #         "tooltip-format-disconnected": "{icon} Disconnected",
+      #         "on-click-right": "nm-connection-editor",
+      #         "format-icons": {
+      #             "ethernet": "",
+      #             "disconnected": "⚠",
+      #             "wifi": [
+      #                 "睊",
+      #                 "直"
+      #             ]
+      #         },
+      #         "interval": 2
+      #     },
+      #     "pulseaudio": {
+      #         // "scroll-step": 1, // %, can be a float
+      #         "format": "{icon} {volume}%", // {format_source}
+      #         "format-bluetooth": "{icon} {volume}%", // {format_source}
+      #         "format-bluetooth-muted": "", // {format_source}
+      #         "format-muted": "", // {format_source}
+      #         "format-source": "{volume}% ",
+      #         "format-source-muted": "",
+      #         "format-icons": {
+      #             "headphone": "",
+      #             "headset": "",
+      #             "phone": "",
+      #             "portable": "",
+      #             "car": " ",
+      #             "default": [
+      #                 "",
+      #                 "",
+      #                 ""
+      #             ]
+      #         },
+      #         "on-click": "pavucontrol"
+      #     },
+      #     "backlight": {
+      #         // "device": "acpi_video1",
+      #         "format": "{icon} {percent}%",
+      #         "format-icons": [
+      #             "",
+      #             "",
+      #             "",
+      #             "",
+      #             "",
+      #             "",
+      #             "",
+      #             "",
+      #             ""
+      #         ],
+      #         "on-scroll-up": "light -A 1",
+      #         "on-scroll-down": "light -U 1",
+      #         "interval": 2
+      #     },
+      #     "battery": {
+      #         "states": {
+      #             "good": 100,
+      #             "warning": 30,
+      #             "critical": 10
+      #         },
+      #         "format": "{icon} {capacity}%",
+      #         "format-charging": " {capacity}%",
+      #         "format-plugged": " {capacity}%",
+      #         "format-alt": "{icon} {time}",
+      #         // "format-good": "", // An empty format will hide the module
+      #         "format-full": " {capacity}%",
+      #         "format-icons": [
+      #             "",
+      #             "",
+      #             "",
+      #             "",
+      #             "",
+      #             "",
+      #             "",
+      #             "",
+      #             "",
+      #             ""
+      #         ],
+      #         "interval": 2
+      #     },
+      #     "custom/notifications": {
+      #         "tooltip": false,
+      #         "format": "{icon}",
+      #         "format-icons": {
+      #             "notification": "<span foreground='red'><sup></sup></span>",
+      #             "none": "",
+      #             "dnd-notification": "<span foreground='red'><sup></sup></span>",
+      #             "dnd-none": ""
+      #         },
+      #         "return-type": "json",
+      #         "exec-if": "which swaync-client",
+      #         "exec": "swaync-client -swb",
+      #         "on-click": "swaync-client -t -sw",
+      #         "on-click-right": "swaync-client -d -sw",
+      #         "escape": true
+      #     },
+      #     "tray": {
+      #         "icon-size": 15,
+      #         "spacing": 15
+      #     },
+      #     "clock": {
+      #         "timezone": "Asia/Calcutta",
+      #         "format": " {:%d <small>%a</small> %H:%M}",
+      #         //"format": " {:%a %b %d %Y | %H:%M}",
+      #         "format-alt": " {:%A %B %d %Y (%V) | %r}",
+      #         "tooltip-format": "<big>{:%Y %B}</big>\n<tt><small>{calendar}</small></tt>",
+      #         "calendar-weeks-pos": "right",
+      #         "today-format": "<span color='#f38ba8'><b><u>{}</u></b></span>",
+      #         "format-calendar": "<span color='#f2cdcd'><b>{}</b></span>",
+      #         "format-calendar-weeks": "<span color='#94e2d5'><b>W{:%U}</b></span>",
+      #         "format-calendar-weekdays": "<span color='#f9e2af'><b>{}</b></span>",
+      #         "interval": 60
+      #     },
+      #     "idle_inhibitor": {
+      #         "format": "{icon}",
+      #         "format-icons": {
+      #             "activated": "",
+      #             "deactivated": ""
+      #         }
+      #     },
+      #     "custom/weather": {
+      #         "tooltip": true,
+      #         "format": "{}",
+      #         "exec": "~/.scripts/tools/expand weather",
+      #         "return-type": "json"
+      #     },
+      #     "custom/ss": {
+      #         "format": "{}",
+      #         "exec": "~/./scripts/tools/expand ss-icon",
+      #         "return-type": "json",
+      #         "on-click": "~/.scripts/screenshot_full"
+      #     },
+      #     "custom/cycle_wall": {
+      #         "format": "{}",
+      #         "exec": "~/.scripts/tools/expand wall",
+      #         "return-type": "json",
+      #         // "interval": 1,
+      #         "on-click": "~/.scripts/tools/expand cycle",
+      #         "on-click-right": "~/.scripts/tools/expand cycler"
+      #     },
+      #     "custom/clipboard": {
+      #         "format": "{}",
+      #         "exec": "~/.scripts/tools/expand clipboard",
+      #         "return-type": "json",
+      #         // Window position is managed in Hyperland config's windowrulev2
+      #         "on-click": "pkill tofi || cliphist list | gamemoderun tofi -c ~/.config/tofi/tofi.clip.conf | cliphist decode | wl-copy",
+      #         "on-click-middle": "rm -f ~/.cache/cliphist/db",
+      #         "on-click-right": "pkill tofi || cliphist list | gamemoderun tofi -c ~/.config/tofi/tofi.clip.conf | cliphist delete",
+      #         // Here "-l top_right -x -15 -y 10" doesn't matter as '-n' mode is used
+      #         // "on-click": "pkill wofi || cliphist list | wofi --dmenu -p clippick -l top_right -x -15 -y 10 -n | cliphist decode | wl-copy",
+      #         // "on-click-middle": "rm -f ~/.cache/cliphist/db",
+      #         // "on-click-right": "pkill wofi || cliphist list | wofi --dmenu -p clippick -l top_right -x -15 -y 10 -n | cliphist delete",
+      #         "escape": true
+      #     },
+      #     "custo        "layer": "top", // Waybar at top layer
+      #     "position": "top", // Waybar position (top|bottom|left|right)
+      #     //"gtk-layer-shell": "false",
+      #     "height": 45, // Waybar height (to be removed for auto height)
+      #     // "width": 2560, // Waybar width
+      #     "spacing": 0, // Gaps between modules (0px) Adjusted in the css
+      #     "margin-top": 0,
+      #     //"margin-bottom":-10,
+      #     "margin-left": 10,
+      #     "margin-right": 10,
+      #     // Choose the order of the modules
+      #     "modules-left": [
+      #         "custom/launcher",
+      #         "wlr/workspaces",
+      #         // "cpu",
+      #         // "memory",
+      #         // "temperature",
+      #         // "disk",
+      #         "custom/updates"
+      #     ],
+      #     "modules-center": [
+      #         "custom/music"
+      #     ],
+      #     "modules-right": [
+      #         "network",
+      #         "pulseaudio",
+      #         "backlight",
+      #         "battery",
+      #         "custom/notifications",
+      #         "tray",
+      #         "clock",
+      #         // "custom/weather",
+      #         // "custom/cycle_wall",
+      #         // "custom/clipboard",
+      #         "custom/power"
+      #         // "custom/custom"
+      #     ],
+      #     "custom/launcher": {
+      #         "format": "{}",
+      #         "tooltip": true,
+      #         "exec": "echo '{\"text\":\"💧\",\"tooltip\":\"Drun | Run\"}'",
+      #         "return-type": "json",
+      #         "on-click": "pkill tofi || gamemoderun tofi-drun -c ~/.config/tofi/tofi.launcher.conf",
+      #         "on-click-right": "pkill tofi || gamemoderun tofi-run -c ~/.config/tofi/tofi.launcher.conf",
+      #         // "on-click": "pkill wofi || wofi --show drun -n",
+      #         // "on-click-right": "pkill wofi || wofi --show run -n",
+      #     },
+      #     "wlr/workspaces": {
+      #         // "format": "{icon} {name}",
+      #         "format": "",
+      #         "format-icons": {
+      #             "active": "",
+      #             "default": ""
+      #         },
+      #         "on-scroll-up": "hyprctl dispatch workspace e-1",
+      #         "on-scroll-down": "hyprctl dispatch workspace e+1",
+      #         "on-click": "activate"
+      #     },
+      #     "cpu": {
+      #         "format": " {usage}%",
+      #         "tooltip": true,
+      #         "on-click": "kitty --start-as=fullscreen --title all_is_kitty sh -c 'btop'",
+      #         "interval": 2
+      #     },
+      #     "memory": {
+      #         "format": " {}%",
+      #         "tooltip": true,
+      #         "on-click": "kitty --start-as=fullscreen --title all_is_kitty sh -c 'btop'",
+      #         "interval": 2
+      #     },
+      #     "temperature": {
+      #         // "thermal-zone": 2,
+      #         // "hwmon-path": "/sys/class/hwmon/hwmon2/temp1_input",
+      #         "critical-threshold": 40,
+      #         "format-critical": "{icon} {temperatureC}°C",
+      #         "format": "{icon} {temperatureC}°C",
+      #         "format-icons": [
+      #             "",
+      #             "",
+      #             ""
+      #         ],
+      #         "tooltip": true,
+      #         "on-click": "kitty --start-as=fullscreen --title all_is_kitty sh -c 'btop'",
+      #         "interval": 2
+      #     },
+      #     "disk": {
+      #         "format": " {percentage_used}% ({free})",
+      #         "tooltip": true,
+      #         "on-click": "kitty --start-as=fullscreen --title all_is_kitty sh -c 'btop'",
+      #         "interval": 2
+      #     },
+      #     "custom/updates": {
+      #         "format": "{}",
+      #         "exec": "~/.scripts/updates",
+      #         "on-click": "~/.scripts/updates update",
+      #         "interval": 600,
+      #         "tooltip": true,
+      #         // "tooltip-format": "{}",
+      #         // "exec-tooltip": "~/.scripts/updates tooltip"
+      #     },
+      #     "custom/music": {
+      #         "format": "{icon}{}",
+      #         "format-icons": {
+      #             // "Playing": " ", // Uncomment if not using the dynamic script
+      #             "Paused": " ",
+      #             "Stopped": "&#x202d;ﭥ " // This stop symbol is RTL. So &#x202d; is left-to-right override.
+      #         },
+      #         "escape": true,
+      #         "tooltip": true,
+      #         "exec": "~/.scripts/caway -b 10 -e",
+      #         "return-type": "json",
+      #         "on-click": "playerctl play-pause",
+      #         "on-scroll-up": "playerctl previous",
+      #         "on-scroll-down": "playerctl next",
+      #         "on-click-right": "g4music",
+      #         "max-length": 35
+      #     },
+      #     "hyprland/window": {
+      #         "format": "{}",
+      #         "separate-outputs": true,
+      #         "max-length": 35
+      #     },
+      #     "network": {
+      #         // "interface": "wlp2*", // (Optional) To force the use of this interface
+      #         "format": "↕{bandwidthTotalBytes}",
+      #         "format-disconnected": "{icon} No Internet",
+      #         "format-linked": " {ifname} (No IP)",
+      #         "format-alt": "↕{bandwidthUpBytes} | ↕{bandwidthDownBytes}",
+      #         "tooltip-format": "{ifname}: {ipaddr}/{cidr}  {gwaddr}",
+      #         "tooltip-format-wifi": "{icon} {essid} ({signalStrength}%)",
+      #         "tooltip-format-ethernet": "{icon} {ipaddr}/{cidr}",
+      #         "tooltip-format-disconnected": "{icon} Disconnected",
+      #         "on-click-right": "nm-connection-editor",
+      #         "format-icons": {
+      #             "ethernet": "",
+      #             "disconnected": "⚠",
+      #             "wifi": [
+      #                 "睊",
+      #                 "直"
+      #             ]
+      #         },
+      #         "interval": 2
+      #     },
+      #     "pulseaudio": {
+      #         // "scroll-step": 1, // %, can be a float
+      #         "format": "{icon} {volume}%", // {format_source}
+      #         "format-bluetooth": "{icon} {volume}%", // {format_source}
+      #         "format-bluetooth-muted": "", // {format_source}
+      #         "format-muted": "", // {format_source}
+      #         "format-source": "{volume}% ",
+      #         "format-source-muted": "",
+      #         "format-icons": {
+      #             "headphone": "",
+      #             "headset": "",
+      #             "phone": "",
+      #             "portable": "",
+      #             "car": " ",
+      #             "default": [
+      #                 "",
+      #                 "",
+      #                 ""
+      #             ]
+      #         },
+      #         "on-click": "pavucontrol"
+      #     },
+      #     "backlight": {
+      #         // "device": "acpi_video1",
+      #         "format": "{icon} {percent}%",
+      #         "format-icons": [
+      #             "",
+      #             "",
+      #             "",
+      #             "",
+      #             "",
+      #             "",
+      #             "",
+      #             "",
+      #             ""
+      #         ],
+      #         "on-scroll-up": "light -A 1",
+      #         "on-scroll-down": "light -U 1",
+      #         "interval": 2
+      #     },
+      #     "battery": {
+      #         "states": {
+      #             "good": 100,
+      #             "warning": 30,
+      #             "critical": 10
+      #         },
+      #         "format": "{icon} {capacity}%",
+      #         "format-charging": " {capacity}%",
+      #         "format-plugged": " {capacity}%",
+      #         "format-alt": "{icon} {time}",
+      #         // "format-good": "", // An empty format will hide the module
+      #         "format-full": " {capacity}%",
+      #         "format-icons": [
+      #             "",
+      #             "",
+      #             "",
+      #             "",
+      #             "",
+      #             "",
+      #             "",
+      #             "",
+      #             "",
+      #             ""
+      #         ],
+      #         "interval": 2
+      #     },
+      #     "custom/notifications": {
+      #         "tooltip": false,
+      #         "format": "{icon}",
+      #         "format-icons": {
+      #             "notification": "<span foreground='red'><sup></sup></span>",
+      #             "none": "",
+      #             "dnd-notification": "<span foreground='red'><sup></sup></span>",
+      #             "dnd-none": ""
+      #         },
+      #         "return-type": "json",
+      #         "exec-if": "which swaync-client",
+      #         "exec": "swaync-client -swb",
+      #         "on-click": "swaync-client -t -sw",
+      #         "on-click-right": "swaync-client -d -sw",
+      #         "escape": true
+      #     },
+      #     "tray": {
+      #         "icon-size": 15,
+      #         "spacing": 15
+      #     },
+      #     "clock": {
+      #         "timezone": "Asia/Calcutta",
+      #         "format": " {:%d <small>%a</small> %H:%M}",
+      #         //"format": " {:%a %b %d %Y | %H:%M}",
+      #         "format-alt": " {:%A %B %d %Y (%V) | %r}",
+      #         "tooltip-format": "<big>{:%Y %B}</big>\n<tt><small>{calendar}</small></tt>",
+      #         "calendar-weeks-pos": "right",
+      #         "today-format": "<span color='#f38ba8'><b><u>{}</u></b></span>",
+      #         "format-calendar": "<span color='#f2cdcd'><b>{}</b></span>",
+      #         "format-calendar-weeks": "<span color='#94e2d5'><b>W{:%U}</b></span>",
+      #         "format-calendar-weekdays": "<span color='#f9e2af'><b>{}</b></span>",
+      #         "interval": 60
+      #     },
+      #     "idle_inhibitor": {
+      #         "format": "{icon}",
+      #         "format-icons": {
+      #             "activated": "",
+      #             "deactivated": ""
+      #         }
+      #     },
+      #     "custom/weather": {
+      #         "tooltip": true,
+      #         "format": "{}",
+      #         "exec": "~/.scripts/tools/expand weather",
+      #         "return-type": "json"
+      #     },
+      #     "custom/ss": {
+      #         "format": "{}",
+      #         "exec": "~/./scripts/tools/expand ss-icon",
+      #         "return-type": "json",
+      #         "on-click": "~/.scripts/screenshot_full"
+      #     },
+      #     "custom/cycle_wall": {
+      #         "format": "{}",
+      #         "exec": "~/.scripts/tools/expand wall",
+      #         "return-type": "json",
+      #         // "interval": 1,
+      #         "on-click": "~/.scripts/tools/expand cycle",
+      #         "on-click-right": "~/.scripts/tools/expand cycler"
+      #     },
+      #     "custom/clipboard": {
+      #         "format": "{}",
+      #         "exec": "~/.scripts/tools/expand clipboard",
+      #         "return-type": "json",
+      #         // Window position is managed in Hyperland config's windowrulev2
+      #         "on-click": "pkill tofi || cliphist list | gamemoderun tofi -c ~/.config/tofi/tofi.clip.conf | cliphist decode | wl-copy",
+      #         "on-click-middle": "rm -f ~/.cache/cliphist/db",
+      #         "on-click-right": "pkill tofi || cliphist list | gamemoderun tofi -c ~/.config/tofi/tofi.clip.conf | cliphist delete",
+      #         // Here "-l top_right -x -15 -y 10" doesn't matter as '-n' mode is used
+      #         // "on-click": "pkill wofi || cliphist list | wofi --dmenu -p clippick -l top_right -x -15 -y 10 -n | cliphist decode | wl-copy",
+      #         // "on-click-middle": "rm -f ~/.cache/cliphist/db",
+      #         // "on-click-right": "pkill wofi || cliphist list | wofi --dmenu -p clippick -l top_right -x -15 -y 10 -n | cliphist delete",
+      #         "escape": true
+      #     },
+      #     "custom/power": {
+      #         "format": "{}",
+      #         // "exec": "~/.scripts/tools/expand power",
+      #         "exec": "echo '{\"text\":\"⏻\",\"tooltip\":\"Power\"}'",
+      #         "return-type": "json",
+      #         "on-click": "~/.config/wlogout/launch.sh"
+      #     },
+      #     "custom/custom": {
+      #         "format": "{}",
+      #         "exec": "~/.scripts/tools/expand arrow-icon",
+      #         "on-click": "~/.scripts/tools/expand_toolbar",
+      #         "return-type": "json"
+      #     }
+      # } "exec": "~/.scripts/tools/expand power",
+      #         "exec": "echo '{\"text\":\"⏻\",\"tooltip\":\"Power\"}'",
+      #         "return-type": "json",
+      #         "on-click": "~/.config/wlogout/launch.sh"
+      #     },
+      #     "custom/custom": {
+      #         "format": "{}",
+      #         "exec": "~/.scripts/tools/expand arrow-icon",
+      #         "on-click": "~/.scripts/tools/expand_toolbar",
+      #         "return-type": "json"
+      #     }
 
-            window#waybar {
-                background: ${custom.palette.primary_background_rgba};
-            }
+      };
 
-            #cava.left, #cava.right {
-                background: #${custom.palette.tertiary_background_hex};
-                margin: 5px; 
-                padding: 8px 16px;
-                color: #${custom.primary_accent};
-            }
-            #cava.left {
-                border-radius: 24px 10px 24px 10px;
-            }
-            #cava.right {
-                border-radius: 10px 24px 10px 24px;
-            }
-            #workspaces {
-                background: #${custom.palette.tertiary_background_hex};
-                margin: 5px 5px;
-                padding: 8px 5px;
-                border-radius: 16px;
-                color: #${custom.primary_accent}
-            }
-            #workspaces button {
-                padding: 0px 5px;
-                margin: 0px 3px;
-                border-radius: 16px;
-                color: transparent;
-                background: ${custom.palette.primary_background_rgba};
-                transition: all 0.3s ease-in-out;
-            }
+      style = ''
+        * {
+          border: none;
+          border-radius: 0;
+          font-family: Source Code Pro;
+        }
+        window#waybar {
+          background: #16191C;
+          color: #AAB2BF;
+        }
+        #workspaces button {
+          padding: 0 5px;
+        }
+      '';
 
-            #workspaces button.active {
-                background-color: #${custom.secondary_accent};
-                color: #${custom.background};
-                border-radius: 16px;
-                min-width: 50px;
-                background-size: 400% 400%;
-                transition: all 0.3s ease-in-out;
-            }
-
-            #workspaces button:hover {
-                background-color: #${custom.tertiary_accent};
-                color: #${custom.background};
-                border-radius: 16px;
-                min-width: 50px;
-                background-size: 400% 400%;
-            }
-
-            #tray, #pulseaudio, #network, #battery,
-            #custom-playerctl.backward, #custom-playerctl.play, #custom-playerctl.foward{
-                background: #${custom.palette.tertiary_background_hex};
-                font-weight: bold;
-                margin: 5px 0px;
-            }
-            #tray, #pulseaudio, #network, #battery{
-                color: #${custom.tertiary_accent};
-                border-radius: 10px 24px 10px 24px;
-                padding: 0 20px;
-                margin-left: 7px;
-            }
-            #clock {
-                color: #${custom.tertiary_accent};
-                background: #${custom.palette.tertiary_background_hex};
-                border-radius: 0px 0px 0px 40px;
-                padding: 10px 10px 15px 25px;
-                margin-left: 7px;
-                font-weight: bold;
-                font-size: 16px;
-            }
-            #custom-launcher {
-                color: #${custom.secondary_accent};
-                background: #${custom.palette.tertiary_background_hex};
-                border-radius: 0px 0px 40px 0px;
-                margin: 0px;
-                padding: 0px 35px 0px 15px;
-                font-size: 28px;
-            }
-
-            #custom-playerctl.backward, #custom-playerctl.play, #custom-playerctl.foward {
-                background: #${custom.palette.tertiary_background_hex};
-                font-size: 22px;
-            }
-            #custom-playerctl.backward:hover, #custom-playerctl.play:hover, #custom-playerctl.foward:hover{
-                color: #${custom.tertiary_accent};
-            }
-            #custom-playerctl.backward {
-                color: #${custom.primary_accent};
-                border-radius: 24px 0px 0px 10px;
-                padding-left: 16px;
-                margin-left: 7px;
-            }
-            #custom-playerctl.play {
-                color: #${custom.secondary_accent};
-                padding: 0 5px;
-            }
-            #custom-playerctl.foward {
-                color: #${custom.primary_accent};
-                border-radius: 0px 10px 24px 0px;
-                padding-right: 12px;
-                margin-right: 7px
-            }
-            #custom-playerlabel {
-                background: #${custom.palette.tertiary_background_hex};
-                color: #${custom.tertiary_accent};
-                padding: 0 20px;
-                border-radius: 24px 10px 24px 10px;
-                margin: 5px 0;
-                font-weight: bold;
-            }
-            #window{
-                background: #${custom.palette.tertiary_background_hex};
-                padding-left: 15px;
-                padding-right: 15px;
-                border-radius: 16px;
-                margin-top: 5px;
-                margin-bottom: 5px;
-                font-weight: normal;
-                font-style: normal;
-            }
-        '';
     };
+
+  };
+
 }
