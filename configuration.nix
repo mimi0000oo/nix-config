@@ -15,7 +15,7 @@
   home-manager = { 
     extraSpecialArgs = { inherit inputs; };
     users = {
-      mimi07 = import ./home.nix;
+      mimi07 = import ./home;
     };
   };
 
@@ -132,6 +132,10 @@
     gnutar
     unrar
     unzip
+    libsForQt5.dolphin
+    moonlight-qt
+    remmina
+    freerdp
   ];
 
   networking.wireless.iwd.enable = true;
