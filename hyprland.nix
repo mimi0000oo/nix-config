@@ -184,8 +184,8 @@
       bind = $mainMod SHIFT, 0, movetoworkspace, 10
   
       # Example special workspace (scratchpad)
-      bind = $mainMod, S, togglespecialworkspace, magic
-      bind = $mainMod SHIFT, S, movetoworkspace, special:magic
+      # bind = $mainMod, S, togglespecialworkspace, magic
+      # bind = $mainMod SHIFT, S, movetoworkspace, special:magic
   
       # Scroll through existing workspaces with mainMod + scroll
       bind = $mainMod, mouse_down, workspace, e+1
@@ -194,6 +194,7 @@
       # Move/resize windows with mainMod + LMB/RMB and dragging
       bindm = $mainMod, mouse:272, movewindow
       bindm = $mainMod, mouse:273, resizewindow
+      bindm = $mainMod, mouse:274, 
 
       windowrulev2 = opacity 0.0 override 0.0 override,class:^(xwaylandvideobridge)$
       windowrulev2 = noanim,class:^(xwaylandvideobridge)$
