@@ -9,8 +9,8 @@
     ./hardware-configuration.nix
     inputs.home-manager.nixosModules.home-manager
     inputs.hyprland.nixosModules.default
-    inputs.nixos-06cb-009a-fingerprint-sensor.nixosModules.open-fprintd
-    inputs.nixos-06cb-009a-fingerprint-sensor.nixosModules.python-validity
+    inputs.fingerprint-sensor.nixosModules.open-fprintd
+    inputs.fingerprint-sensor.nixosModules.python-validity
   ];
 
   services.open-fprintd.enable = true;
