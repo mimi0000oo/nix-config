@@ -75,7 +75,7 @@
           interval = 2;
         };
         temperature = {
-          #// "thermal-zone": 2,
+          thermal-zone = 2;
           #// "hwmon-path": "/sys/class/hwmon/hwmon2/temp1_input",
           critical-threshold = 40;
           format-critical = "{icon} {temperatureC}°C";
@@ -200,16 +200,16 @@
           #/ "format-good": "", // An empty format will hide the module
           format-full = "󱟢 {capacity}%";
           format-icons = [
-              "󰁹"
-              "󰂂"
-              "󰂁"
-              "󰂀"
-              "󰁿"
-              "󰁾"
-              "󰁽"
-              "󰁼"
-              "󰁻"
               "󰁺"
+              "󰁻"
+              "󰁼"
+              "󰁽"
+              "󰁾"
+              "󰁿"
+              "󰂀"
+              "󰂁"
+              "󰂂"
+              "󰁹"
           ];
           interval = 2;
         };
