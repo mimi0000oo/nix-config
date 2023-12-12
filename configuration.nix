@@ -5,12 +5,17 @@
 { inputs, config, pkgs, lib, ... }:
 
 {
-  imports =
-    [ # Include the results of the hardware scan.
-      ./hardware-configuration.nix
-      inputs.home-manager.nixosModules.home-manager
-      inputs.hyprland.nixosModules.default
-    ];
+  imports = [ # Include the results of the hardware scan.
+    ./hardware-configuration.nix
+    inputs.home-manager.nixosModules.home-manager
+    inputs.hyprland.nixosModules.default
+    nixos-06cb-009a-fingerprint-sensor.nixosModules.open-fprintd
+    nixos-06cb-009a-fingerprint-sensor.nixosModules.python-validity
+  ];
+
+  services.open-fprintd.enable = true;
+  services.python-validity.enable = true;
+  
 
   home-manager = { 
     extraSpecialArgs = { inherit inputs; };
@@ -134,6 +139,7 @@
     libsForQt5.dolphin
     obs-studio
     swaynotificationcenter
+    usbutils
   ];
 
   networking.wireless.iwd.enable = true;
