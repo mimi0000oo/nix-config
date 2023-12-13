@@ -156,8 +156,8 @@
           format-source = "{volume}% ";
           format-source-muted = "";
           format-icons = {
-              headphone = "";
-              headset = "";
+              headphone = "󰋋";
+              headset = "󰋎";
               phone = "";
               portable = "";
               car = " ";
