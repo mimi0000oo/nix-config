@@ -15,10 +15,10 @@
       url = "github:the-argus/spicetify-nix";
       inputs.nixpkgs.follows = "nixpkgs";
     };
-    fingerprint-sensor = {
-      url = "github:ahbnr/nixos-06cb-009a-fingerprint-sensor";
-      # inputs.nixpkgs.follows = "nixos/nixpkgs/nixos-22.11";
-    };
+    # fingerprint-sensor = {
+      # url = "github:ahbnr/nixos-06cb-009a-fingerprint-sensor";
+      # inputs.nixpkgs.follows = "nixpkgs";
+    # };
   };
 
   outputs = { self, nixpkgs, ... }@inputs:

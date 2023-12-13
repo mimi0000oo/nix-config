@@ -22,7 +22,7 @@ in
     ];
 
     enabledCustomApps = with spicePkgs.apps; [
-      lyrics-plus
+      # lyrics-plus
       marketplace
     ];
   };
