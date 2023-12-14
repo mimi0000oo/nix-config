@@ -9,6 +9,7 @@
     ./hardware-configuration.nix
     inputs.home-manager.nixosModules.home-manager
     inputs.hyprland.nixosModules.default
+    inputs.nixos-hardware.nixosModules.lenovo-thinkpad-t480
     # inputs.fingerprint-sensor.nixosModules.open-fprintd
     # inputs.fingerprint-sensor.nixosModules.python-validity
   ];
@@ -28,6 +29,8 @@
   boot.loader.systemd-boot.enable = true;
   boot.loader.efi.canTouchEfiVariables = true;
 
+  boot.kernelParams = [ "intel_pstate=active" ];
+
   networking.hostName = "nixos"; # Define your hostname.
 
   environment.sessionVariables = {
@@ -36,6 +39,7 @@
     QT_QPA_PLATFORM="wayland;xcb";
   };
 
+  powerManagement.cpuFreqGovernor = "performance";
   
 
   time.timeZone = "Europe/Bucharest";
@@ -138,9 +142,14 @@
     unzip
     libsForQt5.dolphin
     obs-studio
-    swaynotificationcenter
+    # swaynotificationcenter
     usbutils
+    wlr-randr
+    plasma5Packages.plasma-thunderbolt
+    tor-browser
   ];
+
+  services.hardware.bolt.enable = true;
 
   networking.wireless.iwd.enable = true;
   hardware.bluetooth.enable = true;
@@ -182,18 +191,18 @@
     };
   };
 
-  nixpkgs.config.packageOverrides = pkgs: {
-    vaapiIntel = pkgs.vaapiIntel.override { enableHybridCodec = true; };
-  };
-  hardware.opengl = {
-    enable = true;
-    extraPackages = with pkgs; [
-      intel-media-driver # LIBVA_DRIVER_NAME=iHD
-      vaapiIntel         # LIBVA_DRIVER_NAME=i965 (older but works better for Firefox/Chromium)
-      vaapiVdpau
-      libvdpau-va-gl
-    ];
-  };
+  # nixpkgs.config.packageOverrides = pkgs: {
+  #   vaapiIntel = pkgs.vaapiIntel.override { enableHybridCodec = true; };
+  # };
+  # hardware.opengl = {
+  #   enable = true;
+  #   extraPackages = with pkgs; [
+  #     intel-media-driver # LIBVA_DRIVER_NAME=iHD
+  #     vaapiIntel         # LIBVA_DRIVER_NAME=i965 (older but works better for Firefox/Chromium)
+  #     vaapiVdpau
+  #     libvdpau-va-gl
+  #   ];
+  # };
 
 
   nix.settings.experimental-features = [ "nix-command" "flakes" ];

@@ -33,7 +33,7 @@
           "pulseaudio"
           "backlight"
           "battery"
-          "custom/notifications"
+          # "custom/notifications"
               # "tray",
           "clock"
       #         // "custom/weather",
@@ -213,22 +213,22 @@
           ];
           interval = 2;
         };
-        "custom/notifications" = {
-            tooltip = false;
-            format = "{icon}";
-            format-icons = {
-                notification = "<span foreground='red'><sup></sup></span>";
-                none = "";
-                dnd-notification = "<span foreground='red'><sup></sup></span>";
-                dnd-none = "";
-            };
-            return-type = "json";
-            exec-if = "which swaync-client";
-            exec = "swaync-client -swb";
-            on-click = "swaync-client -t -sw";
-            on-click-right = "swaync-client -d -sw";
-            escape = true;
-        };
+        # "custom/notifications" = {
+        #     tooltip = false;
+        #     format = "{icon}";
+        #     format-icons = {
+        #         notification = "<span foreground='red'><sup></sup></span>";
+        #         none = "";
+        #         dnd-notification = "<span foreground='red'><sup></sup></span>";
+        #         dnd-none = "";
+        #     };
+        #     return-type = "json";
+        #     exec-if = "which swaync-client";
+        #     exec = "swaync-client -swb";
+        #     on-click = "swaync-client -t -sw";
+        #     on-click-right = "swaync-client -d -sw";
+        #     escape = true;
+        # };
       #     "tray": {
       #         "icon-size": 15,
       #         "spacing": 15
@@ -646,11 +646,17 @@
       /* =============================== */
       /* Battery Module */
       #battery {
-        color: @green;
+        /*color: @green;
         border-radius: 0;
         margin-right: 0px;
         padding-left: 5px;
-        padding-right: 5px;
+        padding-right: 5px;*/
+
+        color: @green;
+        border-top-left-radius: 0;
+        border-bottom-left-radius: 0;
+        padding-left: 5px;
+        padding-right: 1.25rem;
       }
 
       #battery.charging {
