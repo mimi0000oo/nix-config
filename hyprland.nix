@@ -34,7 +34,7 @@
   
       # Set programs that you use
       $terminal = kitty
-      $fileManager = dolphin
+      $fileManager = thunar
       $menu = wofi --show drun
       # Some default env vars.
       env = XCURSOR_SIZE,24

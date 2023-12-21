@@ -140,7 +140,6 @@
     gnutar
     unrar
     unzip
-    libsForQt5.dolphin
     obs-studio
     # swaynotificationcenter
     usbutils
@@ -148,6 +147,16 @@
     plasma5Packages.plasma-thunderbolt
     tor-browser
   ];
+
+  programs.thunar = {
+    enable = true;
+    plugins = with pkgs.xfce; [
+      thunar-archive-plugin
+      thunar-volman
+    ];
+
+  };
+  services.gvfs.enable = true; # Mount, trash, and other functionalities
 
   services.hardware.bolt.enable = true;
 
