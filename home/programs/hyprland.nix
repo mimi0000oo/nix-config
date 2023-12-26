@@ -152,6 +152,7 @@
       bind = $mainMod, R, exec, $menu
       bind = $mainMod, P, pseudo, # dwindle
       bind = $mainMod, J, togglesplit, # dwindle
+      bind = $mainMod, F, fullscreen 
   
       # Move focus with mainMod + arrow keys
       bind = $mainMod, left, movefocus, l
@@ -194,7 +195,26 @@
       # Move/resize windows with mainMod + LMB/RMB and dragging
       bindm = $mainMod, mouse:272, movewindow
       bindm = $mainMod, mouse:273, resizewindow
-      bindm = $mainMod, mouse:274, 
+      bindm = $mainMod, mouse:274,
+
+      #### CUSTOM
+
+
+      bind = , XF86AudioMedia, exec, playerctl play-pause
+      bind = , XF86AudioPlay, exec, playerctl play-pause
+      bind = , XF86AudioStop, exec, playerctl stop
+      bind = , XF86AudioPrev, exec, playerctl previous
+      bind = , XF86AudioNext, exec, playerctl next
+
+      binde = , XF86AudioRaiseVolume, exec, pactl set-sink-volume @DEFAULT_SINK@ +1%
+      binde = , XF86AudioLowerVolume, exec, pactl set-sink-volume @DEFAULT_SINK@ -1%
+      bind = , XF86AudioMute, exec, pactl set-sink-mute @DEFAULT_SINK@ toggle
+      bind = , XF86AudioMicMute, exec, pactl set-source-mute @DEFAULT_SOURCE@ toggle
+
+      binde = , XF86MonBrightnessUp, exec, brightnessctl set 5%+
+      binde = , XF86MonBrightnessDown, exec, brightnessctl set 5%-
+
+      #### 
 
       windowrulev2 = opacity 0.0 override 0.0 override,class:^(xwaylandvideobridge)$
       windowrulev2 = noanim,class:^(xwaylandvideobridge)$

@@ -8,7 +8,7 @@
       inputs.nixpkgs.follows = "nixpkgs";
     };
     hyprland = {
-      url = "github:hyprwm/Hyprland";
+      url = "github:hyprwm/Hyprland/v0.33.1";
       inputs.nixpkgs.follows = "nixpkgs";
     };
     spicetify-nix = {
@@ -18,10 +18,10 @@
     nixos-hardware = {
       url = "github:NixOS/nixos-hardware/master";
     };
-    # fingerprint-sensor = {
-      # url = "github:ahbnr/nixos-06cb-009a-fingerprint-sensor";
-      # inputs.nixpkgs.follows = "nixpkgs";
-    # };
+    fingerprint-sensor = {
+      url = "github:ahbnr/nixos-06cb-009a-fingerprint-sensor";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
   };
 
   outputs = { self, nixpkgs, ... }@inputs:
