@@ -1,6 +1,15 @@
-{ config, pkgs, ... }: 
+{ inputs, config, pkgs, ... }: 
 
 {
+
+  imports = [
+    # Fingreprint modules
+    inputs.fingerprint-sensor.nixosModules.open-fprintd
+    inputs.fingerprint-sensor.nixosModules.python-validity
+
+    ./networking.nix
+    ./security.nix
+  ];
 
   services = {
     # Bluetooth

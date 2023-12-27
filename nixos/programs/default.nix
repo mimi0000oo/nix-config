@@ -1,9 +1,12 @@
-{ config, pkgs, ... }: 
+{ inputs, config, pkgs, ... }: 
 
 {
 
   imports = [
+    inputs.hyprland.nixosModules.default # Hyprland module for NixOS configuration
+
     ./xdg.nix
+    ./spotify.nix
   ];
 
   programs = {
