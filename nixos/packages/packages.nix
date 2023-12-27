@@ -1,8 +1,6 @@
 { config, pkgs, ... }: 
 let 
-  discord = (pkgs.discord.override {
-    withOpenASAR = true;
-  });
+
   vscodium = (pkgs.vscode-with-extensions.override {
     vscode = pkgs.vscodium;
     vscodeExtensions = with pkgs.vscode-extensions; [
@@ -11,6 +9,7 @@ let
       catppuccin.catppuccin-vsc
     ];
   });
+
 in
 {
 
@@ -22,7 +21,6 @@ in
     brightnessctl
     btop
     cmatrix
-    discord
     dunst
     fastfetch
     firefox
@@ -48,6 +46,7 @@ in
     p7zip
     pavucontrol
     pcmanfm
+    pipewire
     plasma5Packages.plasma-thunderbolt
     playerctl
     polkit_gnome
@@ -61,11 +60,13 @@ in
     unrar
     unzip
     usbutils
+    vesktop
     vim
     vscodium
     waybar
     waypaper
     wget
+    wireplumber
     wl-clipboard
     wlr-randr
     wofi

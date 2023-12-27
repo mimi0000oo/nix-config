@@ -3,7 +3,7 @@
 {
 
   imports = [
-    ./file
+    ./files
     ./programs
     ./services
   ];
