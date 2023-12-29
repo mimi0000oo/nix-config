@@ -41,7 +41,6 @@
         specialArgs = { inherit inputs; };
         modules = [
           ./configuration.nix
-          # ./spotify.nix
         ];
       };
     };
