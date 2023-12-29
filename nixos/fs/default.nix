@@ -7,4 +7,6 @@
     ./createDir.nix
   ];
 
+  nix.optimise.automatic = true;
+
 }
