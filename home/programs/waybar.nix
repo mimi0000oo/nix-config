@@ -236,9 +236,9 @@
       #     },
         clock = {
           timezone = "Europe/Bucharest";
-          format = "󱑂 {:%d <small>%a</small> %H:%M}";
+          format = "󰅐 {:%d <small>%a</small> %H:%M}";
           #//"format": " {:%a %b %d %Y | %H:%M}",
-          format-alt = "󱑂 {:%A %B %d %Y (%V) | %r}";
+          format-alt = "󰅐 {:%A %B %d %Y (%V) | %r}";
           tooltip-format = "<big>{:%Y %B}</big>\n<tt><small>{calendar}</small></tt>";
           calendar-weeks-pos = "right";
           today-format = "<span color='#f38ba8'><b><u>{}</u></b></span>";
