@@ -199,6 +199,10 @@
 
       #### CUSTOM
 
+      # Wallpaper
+      bind = $mainMod SHIFT, W, exec, waypaper --restore --random --backend swww
+
+      # Keybinds
 
       bind = , XF86AudioMedia, exec, playerctl play-pause
       bind = , XF86AudioPlay, exec, playerctl play-pause
@@ -224,4 +228,3 @@
   };
 
 }
-

@@ -3,11 +3,11 @@
 {
 
   home.file = {
-    "Pictures/wallpapers/gifs/wallpaper.gif".source = builtins.fetchurl {
-      url = https://raw.githubusercontent.com/D3Ext/aesthetic-wallpapers/main/images/nord_car_live.gif;
-      sha256 = "1pl466cmnsp5hhxlz8z7kd3r7zdr365wwx94l9g1sf48fy0bv0qb";
+    "Pictures/wallpapers/images/wallpaper.png".source = builtins.fetchurl {
+      url = https://raw.githubusercontent.com/D3Ext/aesthetic-wallpapers/main/images/fractal.png;
+      sha256 = "16y02y9iv7m8ggr9kb3ggjcjmbl747rmhjw3w8jsd23w6qh6bhz9";
     };
-    ".config/waypaper/config.ini".source = config.lib.file.mkOutOfStoreSymlink "/home/mimi07/.nixos/config.ini";
+    ".config/waypaper/config.ini".source = config.lib.file.mkOutOfStoreSymlink "/etc/nixos/home/files/config.ini";
   };
 
 }

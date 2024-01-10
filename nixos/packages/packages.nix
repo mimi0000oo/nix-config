@@ -1,16 +1,5 @@
 { config, pkgs, ... }: 
-let 
 
-  vscodium = (pkgs.vscode-with-extensions.override {
-    vscode = pkgs.vscodium;
-    vscodeExtensions = with pkgs.vscode-extensions; [
-      bbenoist.nix
-      llvm-vs-code-extensions.vscode-clangd
-      catppuccin.catppuccin-vsc
-    ];
-  });
-
-in
 {
 
   environment.systemPackages = with pkgs; [

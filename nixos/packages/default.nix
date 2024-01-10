@@ -3,9 +3,10 @@
 {
 
   imports = [
-    ./fonts.nix
-    ./packages.nix
     ./allow.nix
+    ./fonts.nix
+    ./overlays.nix
+    ./packages.nix
   ];
 
 }
