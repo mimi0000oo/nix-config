@@ -8,6 +8,6 @@
 
   networking.hostName = "nixos";
 
-  time.timeZone = "Europe/Bucharest";
+  # time.timeZone = "Europe/Bucharest";
 
 }

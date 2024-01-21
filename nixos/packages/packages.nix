@@ -7,6 +7,7 @@
     anydesk
     aria2
     audacity
+    bitwarden
     brightnessctl
     btop
     cmatrix
@@ -17,6 +18,7 @@
     gnome.gnome-disk-utility
     gnome.nautilus
     gnutar
+    grim
     htop
     hyprland
     iwd
@@ -31,6 +33,7 @@
     neovim
     nwg-displays
     nwg-look
+    obsidian
     obs-studio
     p7zip
     pavucontrol
@@ -50,6 +53,7 @@
     unzip
     usbutils
     vesktop
+    swappy
     vim
     vscodium
     waybar
@@ -61,6 +65,14 @@
     wofi
     xorg.xwininfo
     xwaylandvideobridge
+
+
+    pinta
+    rnote
+    amberol
+    loupe
+    snapshot
+    gnome.simple-scan
 
   ];
 

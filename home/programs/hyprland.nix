@@ -218,6 +218,10 @@
       binde = , XF86MonBrightnessUp, exec, brightnessctl set 5%+
       binde = , XF86MonBrightnessDown, exec, brightnessctl set 5%-
 
+      # Screenshot
+      
+      bind = ,XF86Launch2, exec, grim -g "$(slurp)" - | swappy -f -
+
       #### 
 
       windowrulev2 = opacity 0.0 override 0.0 override,class:^(xwaylandvideobridge)$
