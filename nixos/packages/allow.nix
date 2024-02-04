@@ -10,6 +10,7 @@
     "spotify"
     "unrar"
     "obsidian"
+    "android-studio-stable"
   ];
 
   nixpkgs.config.permittedInsecurePackages = [

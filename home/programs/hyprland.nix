@@ -20,6 +20,9 @@
       monitor = eDP-1, 1920x1080@60, 1600x0, 1
       monitor = DP-5, 1600x900@60, 0x0, 1
       monitor = DP-6, 1600x900@60, 0x0, 1
+
+      # nwg-display
+      source = ~/.config/hypr/monitors.conf
   
   
       # See https://wiki.hyprland.org/Configuring/Keywords/ for more

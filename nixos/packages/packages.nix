@@ -74,6 +74,15 @@
     snapshot
     gnome.simple-scan
 
+    gcc
+    python3
+    galaxy-buds-client
+
+    android-studio
+    android-tools
+
+    nodePackages.nodejs
+
   ];
 
 }
