@@ -1,5 +1,13 @@
 { config, pkgs, ... }: 
-
+# let
+#   unstable = import
+#     (builtins.fetchTarball {
+#       url = https://github.com/nixos/nixpkgs/tarball/nixos-unstable;
+#       sha256 = "0k9dd9dbjjvbjjpka4adzhgbqxxqnxgk166i49f1lc9qk746b8l6";
+#     })
+#     # reuse the current configuration
+#     { config = config.nixpkgs.config; };
+# in
 {
 
   environment.systemPackages = with pkgs; [
@@ -44,7 +52,7 @@
     polkit_gnome
     psmisc
     pulseaudio
-    rustdesk
+    # rustdesk
     signal-desktop
     spotify
     swww
@@ -55,7 +63,7 @@
     vesktop
     swappy
     vim
-    vscodium
+    vscodium-fhs
     waybar
     waypaper
     wget
@@ -82,6 +90,10 @@
     android-tools
 
     nodePackages.nodejs
+
+    # unstable.rustdesk
+    rustc
+    cargo
 
   ];
 
