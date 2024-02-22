@@ -1,16 +1,22 @@
 { config, pkgs, ... }: 
-# let
-#   unstable = import
-#     (builtins.fetchTarball {
-#       url = https://github.com/nixos/nixpkgs/tarball/nixos-unstable;
-#       sha256 = "0k9dd9dbjjvbjjpka4adzhgbqxxqnxgk166i49f1lc9qk746b8l6";
-#     })
-#     # reuse the current configuration
-#     { config = config.nixpkgs.config; };
-# in
+let
+  unstable = import
+    (builtins.fetchTarball {
+      url = https://github.com/nixos/nixpkgs/tarball/master;
+      sha256 = "0k9dd9dbjjvbjjpka4adzhgbqxxqnxgk166i49f1lc9qk746b8l6";
+    })
+    # reuse the current configuration
+    { 
+      config = config.nixpkgs.config;
+      system = "x86_64-linux";
+    };
+in
 {
 
   environment.systemPackages = with pkgs; [
+
+    # unstable.rustdesk-flutter
+    unstable.rustdesk
 
     anydesk
     aria2
@@ -63,7 +69,7 @@
     vesktop
     swappy
     vim
-    vscodium-fhs
+    vscodium
     waybar
     waypaper
     wget
@@ -75,25 +81,27 @@
     xwaylandvideobridge
 
 
-    pinta
-    rnote
+    # pinta
+    # rnote
     amberol
     loupe
     snapshot
     gnome.simple-scan
+    slurp
+    image-roll
 
-    gcc
-    python3
+    # gcc
+    # python3
     galaxy-buds-client
 
-    android-studio
-    android-tools
+    # android-studio
+    # android-tools
 
-    nodePackages.nodejs
+    # nodePackages.nodejs
 
-    # unstable.rustdesk
-    rustc
-    cargo
+    # # unstable.rustdesk
+    # rustc
+    # cargo
 
   ];
 

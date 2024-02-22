@@ -55,6 +55,8 @@
           touchpad {
               natural_scroll = false
           }
+
+          numlock_by_default = true
   
           sensitivity = 0 # -1.0 - 1.0, 0 means no modification.
       }
@@ -223,7 +225,8 @@
 
       # Screenshot
       
-      bind = ,XF86Launch2, exec, grim -g "$(slurp)" - | swappy -f -
+      bind = , Print, exec, grim -g "$(slurp)" - | swappy -f -
+    #   bind = $mainMod, Print, exec, grim -g "$(slurp)"
 
       #### 
 
