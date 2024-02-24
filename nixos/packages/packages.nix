@@ -2,8 +2,8 @@
 let
   unstable = import
     (builtins.fetchTarball {
-      url = https://github.com/nixos/nixpkgs/tarball/master;
-      sha256 = "0k9dd9dbjjvbjjpka4adzhgbqxxqnxgk166i49f1lc9qk746b8l6";
+      url = https://github.com/nixos/nixpkgs/tarball/nixos-unstable;
+      sha256 = "1zhf4102f3a09ri3c2gsn6sjhb72cz4jd65srmz31g4l034gzcv6";
     })
     # reuse the current configuration
     { 
