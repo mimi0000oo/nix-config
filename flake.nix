@@ -8,7 +8,7 @@
       inputs.nixpkgs.follows = "nixpkgs";
     };
     hyprland = {
-      url = "github:hyprwm/Hyprland/v0.33.1";
+      url = "github:hyprwm/Hyprland/v0.35.0";
       inputs.nixpkgs.follows = "nixpkgs";
     };
     spicetify-nix = {
