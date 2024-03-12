@@ -34,7 +34,7 @@ in
     gnutar
     grim
     htop
-    hyprland
+    # hyprland
     iwd
     iwgtk
     jellyfin-media-player
@@ -93,9 +93,10 @@ in
     # gcc
     # python3
     galaxy-buds-client
+    fzf
 
-    # android-studio
-    # android-tools
+    android-studio
+    android-tools
 
     # nodePackages.nodejs
 
@@ -103,6 +104,11 @@ in
     # rustc
     # cargo
 
+    gnome.simple-scan
+    libreoffice
+    youtube-music
+
+    # android-studio
   ];
 
 }

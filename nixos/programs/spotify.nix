@@ -8,7 +8,8 @@ in
   imports = [ inputs.spicetify-nix.nixosModule ];
 
   # configure spicetify :)
-  programs.spicetify = {
+  programs.spicetify = 
+    {
     enable = true;
     theme = spicePkgs.themes.catppuccin;
     colorScheme = "mocha";
