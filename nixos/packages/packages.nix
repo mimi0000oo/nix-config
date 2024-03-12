@@ -15,8 +15,8 @@ in
 
   environment.systemPackages = with pkgs; [
 
-    # unstable.rustdesk-flutter
-    unstable.rustdesk
+    unstable.rustdesk-flutter
+    # unstable.rustdesk
 
     anydesk
     aria2
@@ -66,7 +66,7 @@ in
     unrar
     unzip
     usbutils
-    vesktop
+    unstable.vesktop
     swappy
     vim
     vscodium

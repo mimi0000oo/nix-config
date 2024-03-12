@@ -30,7 +30,7 @@
       # Execute your favorite apps at launch
       exec-once = waybar
       exec-once = xwaylandvideobridge
-      exec-once=waypaper --restore --backend swww
+      exec-once = waypaper --restore --backend swww
   
       # Source a file (multi-file configs)
       # source = ~/.config/hypr/myColors.conf
@@ -38,7 +38,7 @@
       # Set programs that you use
       $terminal = kitty
       $fileManager = thunar
-      $menu = wofi --show drun
+      $menu = wofi -IS drun
       # Some default env vars.
       env = XCURSOR_SIZE,24
   
