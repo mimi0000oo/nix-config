@@ -11,6 +11,7 @@ sudo git clone https://github.com/mimi0000oo/nix-config.git
 sudo mv ./nixos ./nixos.bak
 sudo mv ./nix-config ./nixos
 cd nixos
+sudo nixos-generate-config
 sudo nixos-rebuild switch --flake .
 ```
 ### ⚠️ The script is made to backup your current nixos, but make sure you have your configs saved
