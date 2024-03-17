@@ -2,6 +2,14 @@
 
 {
 
+  home.pointerCursor = {
+    gtk.enable = true;
+    # x11.enable = true;
+    package = pkgs.bibata-cursors;
+    name = "Bibata-Modern-Classic";
+    size = 12;
+  };
+
   gtk = {
     enable = true;
     theme = {
@@ -12,13 +20,15 @@
         variant = "mocha";
       };
     };
-    cursorTheme = {
-      name = "Bibata-Modern-Classic";
-      package = pkgs.bibata-cursors;
-    };
+
     iconTheme = {
       name = "Papirus-Dark";
       package = pkgs.papirus-icon-theme;
+    };
+
+    font = {
+      name = "Sans";
+      # size = 11;
     };
   };
 
