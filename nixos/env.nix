@@ -53,6 +53,7 @@ in
       mpv
       neofetch
       neovim
+      nodejs
       nwg-displays
       nwg-look
       obs-studio
