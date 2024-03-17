@@ -14,7 +14,7 @@ cd nixos
 sudo nixos-generate-config
 sudo nixos-rebuild switch --flake .
 ```
-### ⚠️ The script is made to backup your current nixos, but make sure you have your configs saved
+### ⚠️ The script is made to backup your current nixos configuration in `/etc/nixos.bak/`, but make sure you have your configs saved/backed-up!
 
 ___
 
