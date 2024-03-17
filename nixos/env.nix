@@ -85,7 +85,6 @@ in
       wl-clipboard
       wlr-randr
       wofi
-      webcord
       webcord-vencord
       xdg-desktop-portal-hyprland
       xorg.xwininfo
