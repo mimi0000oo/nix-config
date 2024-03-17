@@ -67,6 +67,7 @@ in
       polkit_gnome
       psmisc
       pulseaudio
+      python3
       signal-desktop
       slurp
       snapshot
