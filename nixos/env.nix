@@ -4,7 +4,7 @@ let
   unstable = import
     (builtins.fetchTarball {
       url = https://github.com/nixos/nixpkgs/tarball/nixos-unstable;
-      sha256 = "05lkkw0a63v1zan5g31blhckw6zf66p4gfqkpp01mp7fqwykmzx4";
+      sha256 = "02shwkxrjgnwbszbp25lzsr1r9q3vry3bfg7cp60h3blgld9dy74";
     })
     # reuse the current configuration
     { 
@@ -19,9 +19,6 @@ in
     systemPackages = with pkgs; [
 
       amberol
-      android-studio
-      android-tools
-      anydesk
       aria2
       audacity
       bitwarden

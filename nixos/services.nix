@@ -18,6 +18,10 @@ let
 in 
 
 {
+<<<<<<< HEAD
+=======
+
+>>>>>>> 6970993 (update with fingerprint)
   services = {
 
     automatic-timezoned.enable = true;
@@ -65,6 +69,9 @@ in
       autorun = true;
       libinput.enable = true;
     };
+
+    open-fprintd.enable = true;
+    python-validity.enable = true;
 
   };
 

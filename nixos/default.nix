@@ -40,6 +40,7 @@
   security = {
     polkit.enable = true;
     rtkit.enable = true;
+    pam.services.sudo.fprintAuth = true;
   };
 
   users.users.mimi07 = {
