@@ -18,10 +18,7 @@ let
 in 
 
 {
-<<<<<<< HEAD
-=======
-
->>>>>>> 6970993 (update with fingerprint)
+  
   services = {
 
     automatic-timezoned.enable = true;

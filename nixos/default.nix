@@ -41,6 +41,8 @@
     polkit.enable = true;
     rtkit.enable = true;
     pam.services.sudo.fprintAuth = true;
+    pam.services.sddm.fprintAuth = true;
+    pam.services.polkit-1.fprintAuth = true;
   };
 
   users.users.mimi07 = {
