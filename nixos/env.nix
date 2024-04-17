@@ -18,7 +18,6 @@ in
   environment = {
     systemPackages = with pkgs; [
 
-      amberol
       aria2
       audacity
       bitwarden
@@ -29,6 +28,7 @@ in
       fastfetch
       firefox
       fzf
+      g4music
       galaxy-buds-client
       git
       gnome.gnome-disk-utility
