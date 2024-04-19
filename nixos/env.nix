@@ -25,6 +25,7 @@ in
       btop
       cmatrix
       dunst
+      etcher
       fastfetch
       firefox
       fzf
